@@ -5,7 +5,9 @@ RecipeBlog::App.controllers :recipe do
     render '/recipe/recipes'
   end
 
-  # get :sample, :map => '/sample/url', :provides => [:any, :js] do
+end
+
+# get :sample, :map => '/sample/url', :provides => [:any, :js] do
   #   case content_type
   #     when :js then ...
   #     else ...
@@ -18,6 +20,3 @@ RecipeBlog::App.controllers :recipe do
   # get '/example' do
   #   'Hello world!'
   # end
-  
-
-end
