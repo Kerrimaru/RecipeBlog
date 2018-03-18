@@ -7,15 +7,17 @@ RecipeBlog::App.controllers :recipe do
 
   get :index, :with => '/add' do
     @new_recipe = Recipe.new
+    @categories = Category.all
     render '/recipe/new_recipe'
   end
 
   post :index, :with => '/add' do
-    @new_recipe = Recipe.new(request.params['recipe'])
+    @new_recipe = Recipe.new(params['recipe'])
     if @new_recipe.save
       redirect "/recipe/#{@new_recipe.id}"
     else
-      "Please submit a valid recipe"
+      @message = "Please fill in all the fields."
+      render '/recipe/new_recipe'
     end
   end
 
