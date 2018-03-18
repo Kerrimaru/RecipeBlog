@@ -11,7 +11,6 @@ RecipeBlog::App.controllers :recipe do
   end
 
   post :index, :with => '/add' do
-    binding.pry
     @new_recipe = Recipe.new(request.params['recipe'])
     if @new_recipe.save
       redirect "/recipe/#{@new_recipe.id}"
