@@ -21,3 +21,5 @@
 Recipe.create!(name: "Chilli", categories: [@vegan])
 Recipe.create!(name: "Curry", categories: [@vegetarian, @indian])
 Recipe.create!(name: "Tiramisu", categories: [@desserts, @italian])
+Recipe.create!(name: "Chocolate Mousse", categories: [@vegetarian, @desserts])
+Recipe.create!(name: "Vegan Chicken and Waffles", categories: [@vegan])

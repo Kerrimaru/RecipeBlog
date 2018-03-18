@@ -5,6 +5,26 @@ RecipeBlog::App.controllers :recipe do
     render '/recipe/recipes'
   end
 
+  get :index, :with => '/add' do
+    @new_recipe = Recipe.new
+    render '/recipe/new_recipe'
+  end
+
+  post :index, :with => '/add' do
+    binding.pry
+    @new_recipe = Recipe.new(request.params['recipe'])
+    if @new_recipe.save
+      redirect "/recipe/#{@new_recipe.id}"
+    else
+      "Please submit a valid recipe"
+    end
+  end
+
+  get :index, :with => :recipe_id do
+    @recipe = Recipe.find_by(id: params['recipe_id'])
+    render '/recipe/recipe_details'
+  end
+
 end
 
 # get :sample, :map => '/sample/url', :provides => [:any, :js] do
